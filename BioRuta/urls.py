@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from tasks import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,3 +33,6 @@ urlpatterns = [
     path('logout/', views.cerrarSesion),
     path('iniSesion/', views.iniSesion)
 ]
+
+
+urlpatterns += staticfiles_urlpatterns()

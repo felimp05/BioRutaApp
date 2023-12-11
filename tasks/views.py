@@ -39,7 +39,6 @@ def signup(request):
                 'form': UserCreationForm,
                 'error': "contraseña no coincide"
                 })
-#
 @login_required
 def tasks(request):
     tasks = Task.objects.filter(user=request.user, dateCompleted__isnull=True)
