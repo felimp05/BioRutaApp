@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{error}}
+    <h1>{{task.title}}</h1>
+    {% if dateCompleted__isnull == True %}
+    <form method="POST">
+        {% csrf_token %}
+    {{form.as_p}}
+
+    
+        <button>
+            actualizar
+        </button>
+    
+    </form>
+    
+    <form action="{% url 'complete_task' task.id %}" method="POST">
+        {% csrf_token %}
+        <button>
+            completar
+        </button>
+    </form>
+    <form action="{% url 'complete_task' task.id %}" method="POST">
+        {% csrf_token %}
+        <button>
+            borrar
+        </button>
+    </form>
+    {% else %}
+    {{form.as_p}}
+    {% endif %}
+
+</body>
+</html>
+{% endblock %}

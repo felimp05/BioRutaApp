@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioRuta</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="../" class="en-linea">
+            <img src="../static/media/bioruta-logo.jpeg" alt="logobioruta" width="70px" height="50px">
+            <p class="logo">BioRuta</p>
+        </a>
+        
+        <nav>
+                    <a href="/">Inicio</a>
+                    <a href="/home">Home</a>
+                {% if user.is_authenticated %}
+                    <a href="/tasks">tasks</a>
+                    <a href="/tasks_completed">tasks completed</a>
+                    <a href="/tasks/create_task">crear tarea</a>
+                    <a href="/logout">logout</a>
+                {% else %}
+                    <a href="/signup">signup</a>
+                    <a href="/iniSesion">Login</a>
+    
+                {% endif %}
+        </nav>
+    </div>
+</header>
+    {% block content %}
+    {% endblock %}
+
+
+</body>
+</html>

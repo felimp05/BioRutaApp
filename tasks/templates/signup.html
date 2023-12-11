@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    <div class="log-sign">
+        <div class="form_container">
+    <div class="container">
+        <a href="../" class="en-linea">
+            <img src="../static/media/bioruta-logo.jpeg" alt="logobioruta" width="70px" height="50px">
+        </a>
+    </div>
+    <h2>Signup</h2>
+    {{error}}
+    <form action="/signup/" method="POST">
+    {% csrf_token %}
+    
+    {{form.as_p}}
+    <button>Signup</button>
+    <p>Ya tiene una cuenta? <a href="/iniSesion" class="redirect">iniciar sesion</a></p>
+    </form>
+        </div>
+    </div>
+</body>
+</html>

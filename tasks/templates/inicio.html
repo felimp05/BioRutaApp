@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BioRuta</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="" class="en-linea">
+                <img src="../static/media/bioruta-logo.jpeg" alt="logobioruta" width="70px" height="50px">
+                <p class="logo">BioRuta</p>
+            </a>
+            
+            <nav>
+                {% if user.is_authenticated %}
+                <a href="/tasks">tasks</a>
+                    <a href="/tasks_completed">tasks completed</a>
+                    <a href="/tasks/create_task">crear tarea</a>
+                    <a href="/logout" class="login">logout</a>
+                    {% else %}
+                <a href="#somos-proya">Quienes Somos</a>
+                <a href="#caracteristicas">Características</a>
+                <a href="/iniSesion" class="login">Login</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <section id="somos-proya">
+        <div class="container">
+            <div class="img-container"></div>
+            <div class="texto">
+
+                <h2>Somos <span class="color-acento">BioRuta</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit veritatis a autem sed dignissimos commodi, voluptas incidunt voluptatibus cum, quia neque nulla consequatur laborum accusamus, perspiciatis odio nemo minus vel!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="nuestros-programas">
+        <div class="container">
+            <h2>Que hacemos</h2>
+            <div class="programas">
+                <div class="carta">
+                    <h3>Reciclamos</h3>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt vero corporis incidunt saepe qui commodi quasi neque veniam quam, aspernatur est beatae maxime animi sed reiciendis mollitia ducimus veritatis repellendus?</p>
+                </div>
+                <div class="carta">
+                    <h3>Promovemos el reciclaje</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt vero corporis incidunt saepe qui commodi quasi neque veniam quam, aspernatur est beatae maxime animi sed reiciendis mollitia ducimus veritatis repellendus?</p>
+                </div>
+                <div class="carta">
+                    <h3>Reutilizamos los residuos</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt vero corporis incidunt saepe qui commodi quasi neque veniam quam, aspernatur est beatae maxime animi sed reiciendis mollitia ducimus veritatis repellendus?</p>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+    <!--
+    <section id="caracteristicas">
+        <div class="container">
+            <ul>
+                <li>✔️ 100% online</li>
+                <li>✔️ Flexibilidad de horarios</li>
+                <li>✔️ Soporte 1:1</li>
+                <li>✔️ Asistencia financiera</li>
+            </ul>
+        </div>
+    </section>
+    -->
+
+    <!--
+    <section id="final">
+        <h2>Listo para programar?</h2>
+        <button>APLICÁ YA!</button>
+    </section>
+-->
+    <section id="hero">
+        <h1>Unete al equipo <br>BioRuta</h1>
+        <form action="/iniSesion" method="GET">
+        <button>Comienza ahora</button>
+        </form>
+    </section>
+    <footer>
+        <div class="container">
+            <a href="https://www.instagram.com/bioruta.app/" class="instagram">
+                <img src="../static/media/instagram.png" alt="logo-instagram">
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61553664971738">
+                <img src="../static/media/facebook.png" alt="">
+            </a>
+            <p>&copy; BioRuta 2024</p>
+        </div>
+    </footer>
+</body>
+</html>

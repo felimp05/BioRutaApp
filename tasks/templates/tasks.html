@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>tasks</h1>
+
+    <ul>
+        {% for task in tasks %}
+        <li>
+            {% if task.important == True %}
+            <a href="{% url 'task_detail' task.id %}"><h1>{{task.title}}</h1></a>
+            {% else %}
+            <a href="{% url 'task_detail' task.id %}"><h3>{{task.title}}</h3></a>
+            {% endif %}
+            <p>{{task.description}}</p>
+            <p>{{task.user.username}}</p>
+
+            <p>{{task.dateCompleted|date:'M j Y:1'}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}
